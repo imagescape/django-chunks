@@ -5,7 +5,7 @@ from django.core.cache import cache
 register = template.Library()
 
 Chunk = models.get_model('chunks', 'chunk')
-from chunks import CACHE_PREFIX 
+from .. import CACHE_PREFIX 
 
 def do_get_chunk(parser, token):
     # split_contents() knows not to split quoted strings.
