@@ -1,4 +1,5 @@
 from django.db import models
+from chunks import signals
 
 class Chunk(models.Model):
     """
@@ -13,3 +14,6 @@ class Chunk(models.Model):
 
     def __unicode__(self):
         return u"%s" % (self.key,)
+
+
+models.signals.post_save.connect(signals.chunk_post_save, sender=Chunk)
